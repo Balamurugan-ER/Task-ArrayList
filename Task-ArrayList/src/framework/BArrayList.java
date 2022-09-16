@@ -28,59 +28,60 @@ public class BArrayList {
 		}
 		return true;
 	}
-	public int getSize(List l) throws MyException
+	public int getSize(List<?> list) throws MyException
 	{
-		checkNull(l);
-		return l.size();
+		checkNull(list);
+		return list.size();
 	}
-	public boolean setValue(List l,Object obj) throws MyException
+	//TODO: bug
+	public boolean setValue(List list,Object obj) throws MyException
 	{
-		checkNull(l);
-		return l.add(obj);
+		checkNull(list);
+		return list.add(obj);
 	}
-	public void setValue(List l,Object obj,int index) throws MyException
+	public void setValue(List list,Object obj,int index) throws MyException
 	{
-		if(index > getSize(l))
+		if(index > getSize(list))
 		{
 			throw new MyException("Index should not be Greater than Size of List");
 		}
-		l.add(index,obj);
+		list.add(index,obj);
 	}
-	public int indexOfObj(List l,Object obj,boolean first) throws MyException
+	public int indexOfObj(List<?> list,Object obj,boolean first) throws MyException
 	{
-		checkNull(l);
+		checkNull(list);
 		if(first)
 		{
-			return l.indexOf(obj);
+			return list.indexOf(obj);
 		}
-		return l.lastIndexOf(obj);
+		return list.lastIndexOf(obj);
 	}
-	public Object getValue(List l,int index) throws MyException
+	public Object getValue(List<?> list,int index) throws MyException
 	{
-		checkNull(l);
-		return l.get(index);
+		checkNull(list);
+		return list.get(index);
 	}
-	public List createSubList(List l,int fromIndex,int toIndex) throws MyException
+	public List<?> createSubList(List<?> list,int fromIndex,int toIndex) throws MyException
 	{
-		isValidRange(getSize(l),fromIndex,toIndex);
-		return l.subList(fromIndex, toIndex);
+		isValidRange(getSize(list),fromIndex,toIndex);
+		return list.subList(fromIndex, toIndex);
 	}
-	public void removeElement(List l,Object obj) throws MyException
+	public void removeElement(List<?> list,Object obj) throws MyException
 	{
-		checkNull(l);
-		l.remove(obj);
+		checkNull(list);
+		list.remove(obj);
 	}
-	public void removeElements(ArrayList l,int start,int end) throws MyException
+	public void removeElements(ArrayList<?> list,int start,int end) throws MyException
 	{
-		isValidRange(getSize(l),start,end);
-		l.subList(start, end).clear();
+		isValidRange(getSize(list),start,end);
+		list.subList(start, end).clear();
 	}
-	public boolean isPresent(List l,Object o) throws MyException
+	public boolean isPresent(List<?> list,Object obj) throws MyException
 	{
-		checkNull(l);
-		return l.contains(o);
+		checkNull(list);
+		return list.contains(obj);
 	}
-	public void removeIfPresent(List list,List subList,boolean present) throws MyException
+	public void removeIfPresent(List<?> list,List<?> subList,boolean present) throws MyException
 	{
 		checkNull(list);
 		if(present)
@@ -92,9 +93,9 @@ public class BArrayList {
 			list.removeIf(f->(!subList.contains(f)));
 		}
 	}
-	public void removeAll(List l) throws MyException
+	public void removeAll(List<?> list) throws MyException
 	{
-		checkNull(l);
-		l.clear();
+		checkNull(list);
+		list.clear();
 	}
 }

@@ -1,5 +1,4 @@
 package framework;
-import java.util.ArrayList;
 public class Dog
 {
 	public Dog(String name)

@@ -27,45 +27,45 @@ public class TestBArrayList {
 			throw new MyException("Index Not Valid");
 		}
 	}
-	private void printAlDetails(ArrayList al) throws MyException
+	private void printAlDetails(ArrayList<?> arrayList) throws MyException
 	{
-		System.out.println("ArrayList : "+al);
-		System.out.println("Length : "+obj.getSize(al));
+		System.out.println("ArrayList : "+arrayList);
+		System.out.println("Length : "+obj.getSize(arrayList));
 	}
 	private void mod1() throws MyException
 	{
-		ArrayList al = new ArrayList();
-		printAlDetails(al);
+		ArrayList<?> arrayList = new ArrayList<>();
+		printAlDetails(arrayList);
 	}
 	private void mod2(String[] args) throws MyException
 	{
-		int n=5;
-		ArrayList<String> al = new ArrayList<String>();
+		int size=5;
+		ArrayList<String> arrayList = new ArrayList<String>();
 		System.out.println("Enter 5 Strings : ");
-		isValidArr(args,n);
-		for(int i=0;i<n;i++)
+		isValidArr(args,size);
+		for(int i=0;i<size;i++)
 		{
-			obj.setValue(al,args[i]);
+			obj.setValue(arrayList,args[i]);
 		}
-		printAlDetails(al);
+		printAlDetails(arrayList);
 
 	}
 	private void mod3(String[] args) throws MyException
 	{
-		int n=5;
-		ArrayList<Integer> al = new ArrayList<Integer>();
+		int size=5;
+		ArrayList<Integer> arrayList = new ArrayList<Integer>();
 		System.out.println("Enter 5 Integers : ");
-		isValidArr(args,n);
-		for(int i=0;i<n;i++)
+		isValidArr(args,size);
+		for(int i=0;i<size;i++)
 		{
-			obj.setValue(al,Integer.parseInt(args[i]));
+			obj.setValue(arrayList,Integer.parseInt(args[i]));
 		}
-		printAlDetails(al);
+		printAlDetails(arrayList);
 	}
 	private void mod4(String[] args) throws MyException
 	{
-		int n=2;
-		isValidArr(args,n);
+		int size=2;
+		isValidArr(args,size);
 		ArrayList<Dog> dogs = new ArrayList<Dog>();	
 		obj.setValue(dogs, new Dog(args[0]));
 		obj.setValue(dogs, new Dog(args[1]));
@@ -73,43 +73,43 @@ public class TestBArrayList {
 	}
 	private void mod5(String[] args) throws MyException
 	{
-		ArrayList al = new ArrayList();
-		int n = 7;
-		isValidArr(args,n);
-		obj.setValue(al, Integer.parseInt(args[0]));
-		obj.setValue(al, Integer.parseInt(args[1]));
-		obj.setValue(al, args[2]);
-		obj.setValue(al, args[3]);
-		obj.setValue(al, args[4]);
-		obj.setValue(al, new Dog(args[5]));
-		obj.setValue(al, new Dog(args[6]));
-		printAlDetails(al);
+		ArrayList<?> arrayList = new ArrayList<>();
+		int size = 7;
+		isValidArr(args,size);
+		obj.setValue(arrayList, Integer.parseInt(args[0]));
+		obj.setValue(arrayList, Integer.parseInt(args[1]));
+		obj.setValue(arrayList, args[2]);
+		obj.setValue(arrayList, args[3]);
+		obj.setValue(arrayList, args[4]);
+		obj.setValue(arrayList, new Dog(args[5]));
+		obj.setValue(arrayList, new Dog(args[6]));
+		printAlDetails(arrayList);
 	}
 	private void mod6(String[] args) throws MyException
 	{
-		ArrayList al = new ArrayList();
-		int n=4;
-		isValidArr(args,n);
-		obj.setValue(al, args[0]);
-		obj.setValue(al, args[1]);
-		obj.setValue(al, args[2]);
-		obj.setValue(al, args[3]);
+		ArrayList<?> arrayList = new ArrayList<>();
+		int size=4;
+		isValidArr(args,size);
+		obj.setValue(arrayList, args[0]);
+		obj.setValue(arrayList, args[1]);
+		obj.setValue(arrayList, args[2]);
+		obj.setValue(arrayList, args[3]);
 		System.out.println("Enter the String two Find : ");
 		String string = scan.next();
-		int index = obj.indexOfObj(al, string,true);	
+		int index = obj.indexOfObj(arrayList, string,true);	
 		System.out.println("Index : "+index);
-		printAlDetails(al);
+		printAlDetails(arrayList);
 	}
 	private void mod7(String[] args) throws MyException
 	{
-		ArrayList<String> al = new ArrayList<String>();
-		int n=5;
-		isValidArr(args,n);
-		for(int i=0;i<n;i++)
+		ArrayList<String> arrayList = new ArrayList<String>();
+		int size=5;
+		isValidArr(args,size);
+		for(int i=0;i<size;i++)
 		{
-			obj.setValue(al, args[i]);
+			obj.setValue(arrayList, args[i]);
 		}
-		for (Iterator<String> iterator = al.iterator(); iterator.hasNext();) 
+		for (Iterator<String> iterator = arrayList.iterator(); iterator.hasNext();) 
 		{
 			Object object = (Object) iterator.next();
 			System.out.println(object);
@@ -117,133 +117,133 @@ public class TestBArrayList {
 	}
 	private void mod8(String[] args) throws MyException
 	{
-		int n =2;
-		ArrayList al = new ArrayList();
-		isValidArr(args,n);
-		obj.setValue(al, args[0]);
-		obj.setValue(al, args[1]);
+		int size =2;
+		ArrayList<?> arrayList = new ArrayList<>();
+		isValidArr(args,size);
+		obj.setValue(arrayList, args[0]);
+		obj.setValue(arrayList, args[1]);
 		System.out.println("Enter the index (0,1) Find String : ");
 		int index = scan.nextInt();
-		isValidInd(index,n);
-		String string = (String)obj.getValue(al, index);	
+		isValidInd(index,size);
+		String string = (String)obj.getValue(arrayList, index);	
 		System.out.println(string+" : at "+index);
-		printAlDetails(al);
+		printAlDetails(arrayList);
 	}
 	private void mod9(String[] args) throws MyException
 	{
-		ArrayList<String> al = new ArrayList<String>();
-		int n = 5;
-		isValidArr(args,n);
-		for(int i=0;i<n;i++)
+		ArrayList<String> arrayList = new ArrayList<String>();
+		int size = 5;
+		isValidArr(args,size);
+		for(int i=0;i<size;i++)
 		{
-			obj.setValue(al, args[i]);
+			obj.setValue(arrayList, args[i]);
 		}
 		System.out.println("Enter String To find in the ArrayList");
 		String string = scan.next();
 		System.out.println("Enter Boolean true for Find First Index\n False To Find Last Index");
 		boolean first = scan.nextBoolean();
-		int index = obj.indexOfObj(al,string,first);
+		int index = obj.indexOfObj(arrayList,string,first);
 		System.out.println(index);
-		printAlDetails(al);
+		printAlDetails(arrayList);
 	}
 	private void mod10(String[] args) throws MyException
 	{
-		ArrayList<String> al = new ArrayList<String>();
-		int n = 5;
-		isValidArr(args,n);
-		for(int i=0;i<n;i++)
+		ArrayList<String> arrayList = new ArrayList<String>();
+		int size = 5;
+		isValidArr(args,size);
+		for(int i=0;i<size;i++)
 		{
-			obj.setValue(al, args[i]);
+			obj.setValue(arrayList, args[i]);
 		}
 		System.out.println("Enter Index to add String");
 		int index = scan.nextInt();	
-		isValidInd(index,n);
+		isValidInd(index,size);
 		System.out.println("Enter String To add in the ArrayList");
 		String string = scan.next();
-		obj.setValue(al, string, index);
-		printAlDetails(al);		
+		obj.setValue(arrayList, string, index);
+		printAlDetails(arrayList);		
 	}
 	private void mod11(String[] args) throws MyException
 	{
-		ArrayList<String> al = new ArrayList<String>();
-		int n = 10;
-		isValidArr(args,n);
-		for(int i=0;i<n;i++)
+		ArrayList<String> arrayList = new ArrayList<String>();
+		int size = 10;
+		isValidArr(args,size);
+		for(int i=0;i<size;i++)
 		{
-			obj.setValue(al, args[i]);
+			obj.setValue(arrayList, args[i]);
 		}
 		System.out.println("Enter First index");
 		int fromIndex = scan.nextInt();	
-		isValidInd(fromIndex,n);
+		isValidInd(fromIndex,size);
 		System.out.println("Enter Last index");
 		int toIndex = scan.nextInt();	
-		isValidInd(toIndex,n);
-		List l = obj.createSubList(al, fromIndex, toIndex);
-		ArrayList<String> newAl = new ArrayList<String>(l);
+		isValidInd(toIndex,size);
+		List list = obj.createSubList(arrayList, fromIndex, toIndex);
+		ArrayList<String> newArrayList = new ArrayList<String>(list);
 		System.out.println("First ArrayList");
-		printAlDetails(al);
+		printAlDetails(arrayList);
 		System.out.println("New ArrayList");
-		printAlDetails(newAl);
+		printAlDetails(newArrayList);
 	}
 	private void mod12(String[] args) throws MyException
 	{
-		ArrayList<String> al1 = new ArrayList<String>();
+		ArrayList<String> arrayList1 = new ArrayList<String>();
 		int limit1 = 3,limit2=5,total=limit1+limit2;
 		isValidArr(args,total);
 		for(int i=0;i< limit1;i++)
 		{
-			obj.setValue(al1, args[i]);
+			obj.setValue(arrayList1, args[i]);
 		}
-		ArrayList<String> al2 = new ArrayList<String>();
+		ArrayList<String> arrayList2 = new ArrayList<String>();
 		for(int i=limit1;i< total;i++)
 		{
-			obj.setValue(al2, args[i]);
+			obj.setValue(arrayList2, args[i]);
 		}
-		ArrayList<String> al3 = new ArrayList<String>();
-		al3.addAll(al1);
-		al3.addAll(al2);
+		ArrayList<String> arrayList3 = new ArrayList<String>();
+		arrayList3.addAll(arrayList1);
+		arrayList3.addAll(arrayList2);
 		System.out.println("First ArrayList");
-		printAlDetails(al1);
+		printAlDetails(arrayList1);
 		System.out.println("Second ArrayList");
-		printAlDetails(al2);
+		printAlDetails(arrayList2);
 		System.out.println("Third ArrayList");
-		printAlDetails(al3);
+		printAlDetails(arrayList3);
 	}
 	private void mod13(String[] args) throws MyException
 	{
-		ArrayList<String> al1 = new ArrayList<String>();
+		ArrayList<String> arrayList1 = new ArrayList<String>();
 		int limit1 = 5,limit2=3,total=limit1+limit2;
 		isValidArr(args,total);
 		for(int i=0;i< limit1;i++)
 		{
-			obj.setValue(al1, args[i]);
+			obj.setValue(arrayList1, args[i]);
 		}
-		ArrayList<String> al2 = new ArrayList<String>();
+		ArrayList<String> arrayList2 = new ArrayList<String>();
 		for(int i=limit1;i< total;i++)
 		{
-			obj.setValue(al2, args[i]);
+			obj.setValue(arrayList2, args[i]);
 		}
-		ArrayList<String> al3 = new ArrayList<String>();
-		al3.addAll(al2);
-		al3.addAll(al1);
+		ArrayList<String> arrayList3 = new ArrayList<String>();
+		arrayList3.addAll(arrayList2);
+		arrayList3.addAll(arrayList1);
 		System.out.println("First ArrayList");
-		printAlDetails(al1);
+		printAlDetails(arrayList1);
 		System.out.println("Second ArrayList");
-		printAlDetails(al2);
+		printAlDetails(arrayList2);
 		System.out.println("Third ArrayList");
-		printAlDetails(al3);
+		printAlDetails(arrayList3);
 	}
 	private void mod14(String[] args) throws MyException
 	{
-		ArrayList<Integer> al = new ArrayList<Integer>();
-		int n = 5;
-		isValidArr(args,n);
+		ArrayList<Integer> arrayList = new ArrayList<Integer>();
+		int size = 5;
+		isValidArr(args,size);
 		boolean index = false;
-		for(int i=0;i<n;i++)
+		for(int i=0;i<size;i++)
 		{
-			al.add(Integer.parseInt(args[i]));
+			arrayList.add(Integer.parseInt(args[i]));
 		}
-		printAlDetails(al);
+		printAlDetails(arrayList);
 		System.out.println("Enter True to Delete an index \nEnter False to Delete an element");
 		index = scan.nextBoolean();
 		System.out.println("Enter Number/index");
@@ -251,37 +251,37 @@ public class TestBArrayList {
 		
 		if(index)
 		{
-			isValidInd(number,n);
-			al.remove(number);
+			isValidInd(number,size);
+			arrayList.remove(number);
 		}
 		else
 		{
-			al.remove((Object)number);
+			arrayList.remove((Object)number);
 		}
-		printAlDetails(al);
+		printAlDetails(arrayList);
 	}
 	private void mod15(String[] args) throws MyException
 	{
-		ArrayList<Long> al = new ArrayList<Long>();
-		int n = 10;
-		isValidArr(args,n);
-		for(int i=0;i<n;i++)
+		ArrayList<Long> arrayList = new ArrayList<Long>();
+		int size = 10;
+		isValidArr(args,size);
+		for(int i=0;i<size;i++)
 		{
-			al.add(Long.parseLong(args[i]));
+			arrayList.add(Long.parseLong(args[i]));
 		}
-		printAlDetails(al);
+		printAlDetails(arrayList);
 		System.out.println("Enter the From & To Index to Delete Values");
 		int fromIndex = scan.nextInt();
 		int toIndex = scan.nextInt();
-		isValidInd(fromIndex,n);
-		isValidInd(toIndex,n);
-		obj.removeElements(al, fromIndex, toIndex);
-		printAlDetails(al);
+		isValidInd(fromIndex,size);
+		isValidInd(toIndex,size);
+		obj.removeElements(arrayList, fromIndex, toIndex);
+		printAlDetails(arrayList);
 	}
 	private void mod16(String[] args) throws MyException
 	{
-		ArrayList<String> fAl = new ArrayList<String>();
-		ArrayList<String> sAl = new ArrayList<String>();
+		ArrayList<String> arrayList1 = new ArrayList<String>();
+		ArrayList<String> arrayList2 = new ArrayList<String>();
 		int firstLen = 5,secondLen = 3,total=firstLen+secondLen;
 		isValidArr(args,total);
 		System.out.println("Enter True/false if need to remove presented element or not");
@@ -289,44 +289,44 @@ public class TestBArrayList {
 		
 		for(int i=0;i<firstLen;i++)
 		{
-			fAl.add(args[i]);
+			arrayList1.add(args[i]);
 		}
 		for(int i=firstLen;i<total;i++)
 		{
-			sAl.add(args[i]);
+			arrayList2.add(args[i]);
 		}
-		obj.removeIfPresent(fAl, sAl,present);
-		printAlDetails(fAl);
-		printAlDetails(sAl);
+		obj.removeIfPresent(arrayList1, arrayList2,present);
+		printAlDetails(arrayList1);
+		printAlDetails(arrayList2);
 	}
 	private void mod17(String[] args) throws MyException
 	{
-		ArrayList<Long> al = new ArrayList<Long>();
-		int n = 10;
-		isValidArr(args,n);
-		for(int i=0;i<n;i++)
+		ArrayList<Long> arrayList = new ArrayList<Long>();
+		int size = 10;
+		isValidArr(args,size);
+		for(int i=0;i<size;i++)
 		{
-			al.add(Long.parseLong(args[i]));
+			arrayList.add(Long.parseLong(args[i]));
 		}
-		obj.removeAll(al);
-		printAlDetails(al);				
+		obj.removeAll(arrayList);
+		printAlDetails(arrayList);				
 	}
 	private void mod18(String[] args) throws MyException
 	{
 		
-		ArrayList<String> al = new ArrayList<String>();
-		int n = 5;
-		isValidArr(args,n);
-		for(int i=0;i<n;i++)
+		ArrayList<String> arrayList = new ArrayList<String>();
+		int size = 5;
+		isValidArr(args,size);
+		for(int i=0;i<size;i++)
 		{
-			obj.setValue(al, args[i]);
+			obj.setValue(arrayList, args[i]);
 		}
-		printAlDetails(al);
+		printAlDetails(arrayList);
 		System.out.println("Enter String to Find in the List");
 		String string = scan.next();
-		boolean present = obj.isPresent(al, string);
+		boolean present = obj.isPresent(arrayList, string);
 		System.out.println(present);
-		printAlDetails(al);
+		printAlDetails(arrayList);
 		
 	}
 	public static void main(String[] args) throws MyException
